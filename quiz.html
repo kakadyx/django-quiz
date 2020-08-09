@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{{title}}</title>
+    
+    <link rel="stylesheet" href="{% static 'blog/css/quiz.css' %}">
+    
+</head>
+<body>
+{% for qui in quiz %}
+<div class="quest">{{qui.text}}</div>
+    <p><input class='kakady' name="{{qui.name}}" type="radio" id='1' value="Y"> Да</p>
+    <p><input class='kakady' name="{{qui.name}}" type="radio" id='2' value="N"> Нет</p>
+    <p><input class='kakady' name="{{qui.name}}" type="radio" id='3' value="M"> Иногда</p>
+{% endfor %}
+<button  id = "vivat" type="submit">Выбрать</button>
+    
+<p id = 'hid_text' class = "hidden">Вы не ответили  на все вопросы! Ответьте на все.</p>
+
+<div class="modal hidden" id='modal'>
+    <div class="okno">
+        <button id='close' class="close">закрыть</button>
+        <h2>Результаты теста:</h2>
+        <p id='result-text' class='result-text'>Lorem ipsum dolor sit.</p>
+    </div>
+</div>
+<script type="text/javascript" src= "{% static 'blog/js/quiz.js' %}"></script>
+</body>
+</html>
